@@ -1,0 +1,79 @@
+R-HQ1#show ip route 
+Codes: C - connected, S - static, I - IGRP, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - IS-IS, L1 - IS-IS level-1, L2 - IS-IS level-2, ia - IS-IS inter area
+       * - candidate default, U - per-user static route, o - ODR
+       P - periodic downloaded static route
+
+Gateway of last resort is 10.8.2.1 to network 0.0.0.0
+
+     10.0.0.0/30 is subnetted, 7 subnets
+C       10.8.1.0 is directly connected, FastEthernet0/0
+C       10.8.2.0 is directly connected, GigabitEthernet6/0
+O       10.8.3.0 [110/2] via 10.8.2.1, 04:16:27, GigabitEthernet6/0
+                 [110/2] via 10.8.1.2, 04:16:27, FastEthernet0/0
+C       10.8.4.0 is directly connected, GigabitEthernet9/0
+C       10.8.12.0 is directly connected, GigabitEthernet7/0
+O       10.8.23.0 [110/2] via 10.8.1.2, 04:16:27, FastEthernet0/0
+O       10.8.30.0 [110/2] via 10.8.1.2, 00:05:02, FastEthernet0/0
+     172.16.0.0/24 is subnetted, 1 subnets
+O       172.16.8.0 [110/3] via 10.8.1.2, 00:05:02, FastEthernet0/0
+     172.20.0.0/24 is subnetted, 1 subnets
+
+R-HQ1#h
+R-HQ1#s
+R-HQ1#sh
+R-HQ1#show ip pr
+R-HQ1#show ip protocols 
+Routing Protocol is "rip"
+Sending updates every 30 seconds, next due in 14 seconds
+Invalid after 180 seconds, hold down 180, flushed after 240
+Outgoing update filter list for all interfaces is not set
+Incoming update filter list for all interfaces is not set
+Redistributing: rip, ospf 10 
+Default version control: send version 2, receive 2
+  Interface             Send  Recv  Triggered RIP  Key-chain
+  GigabitEthernet7/0    22
+Automatic network summarization is not in effect
+Maximum path: 4
+Routing for Networks:
+	10.0.0.0
+Passive Interface(s):
+	FastEthernet0/0
+	FastEthernet1/0
+	Serial2/0
+	Serial3/0
+	FastEthernet4/0
+	FastEthernet5/0
+	GigabitEthernet6/0
+	GigabitEthernet8/0
+
+R-HQ1#h
+R-HQ1#ho
+R-HQ1#sh
+R-HQ1#show ip os
+R-HQ1#show ip ospf ne
+R-HQ1#show ip ospf neighbor 
+
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+2.2.2.2           1   FULL/DR         00:00:38    10.8.1.2        FastEthernet0/0
+3.3.3.3           1   FULL/DR         00:00:38    10.8.2.1        GigabitEthernet6/0
+5.5.5.5           1   FULL/DR         00:00:38    10.8.4.2        GigabitEthernet9/0
+R-HQ1#sh
+R-HQ1#show ip inter
+R-HQ1#show ip interface b
+R-HQ1#show ip interface brief 
+Interface              IP-Address      OK? Method Status                Protocol 
+FastEthernet0/0        10.8.1.1        YES manual up                    up 
+FastEthernet1/0        unassigned      YES unset  administratively down down 
+Serial2/0              unassigned      YES unset  administratively down down 
+Serial3/0              unassigned      YES unset  administratively down down 
+FastEthernet4/0        unassigned      YES unset  administratively down down 
+FastEthernet5/0        unassigned      YES unset  administratively down down 
+GigabitEthernet6/0     10.8.2.2        YES manual up                    up 
+GigabitEthernet7/0     10.8.12.1       YES manual up                    up 
+GigabitEthernet8/0     192.168.108.1   YES manual up                    up 
+GigabitE
